@@ -171,9 +171,20 @@ header {
   padding: 0 6px;
   box-sizing: border-box;
 }
-
-.icon {
-  font-size: 26px;
+.avatar {
+  width: 40px;
+  height: 84px;
+  border-radius: 14px;
+  background-image: url('./p.jpg');
+  background-size: cover;
+  background-position: center;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+.icon {border-radius: 14px;
+  background-image: url('./p.jpg');
+  background-size: cover;
+  background-position: center;
+  border: 1px solid rgba(255, 255, 255, 0.06);
   width: 40px;
   text-align: center;
   pointer-events: none;
@@ -476,3 +487,4 @@ header {
   border-radius: 50%;
   margin-right: 6px;
 }
+
