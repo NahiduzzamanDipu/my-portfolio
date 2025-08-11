@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nahiduzzaman</title>
+  <style>
+    /* Variables for colors and styling */
+    :root {
+      --bg: #0f1724;
+      --card: #0b1220;
+      --muted: #9aa4b2;
+      --accent: #7c5cff;
+      --accent-2: #ff7ab6;
+      --glass: rgba(255,255,255,0.04);
+      --radius: 14px;
+      --max-width: 600px;
+
+      --text-color: #e6eef8;
+      --background-gradient: linear-gradient(180deg,#071025 0%, #071733 100%);
+      --btn-bg: var(--glass);
+      --btn-border: rgba(255,255,255,0.04);
+      --btn-primary-bg: linear-gradient(90deg,var(--accent),var(--accent-2));
+      --btn-primary-color: #fff;
+      --card-bg: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      --card-border: rgba(255,255,255,0.04);
+      --card-shadow: 0 8px 30px rgba(2,6,23,0.8);
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: var(--background-gradient);
+      color: var(--text-color);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.4;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      background: var(--card-bg);
+      padding: 32px;
+      border-radius: var(--radius);
+      box-shadow: var(--card-shadow);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 24px;
+      font-weight: 700;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    label {
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+      width: 100%;
+      max-width: 100%;
+      padding: 10px 14px;
+      font-size: 14px;
+      border-radius: 10px;
+      border: 1px solid var(--btn-border);
+      background: var(--btn-bg);
+      color: var(--text-color);
+      transition: border-color 0.3s ease;
+      box-sizing: border-box;
+      font-family: inherit;
+      resize: vertical;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="tel"]:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      background: var(--card-bg);
+    }
+
+    textarea {
+      min-height: 100px;
+      max-height: 180px;
+    }
+
+    /* Interest section */
+    .checkbox-wrapper {
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+
+    .toggle-btn {
+      background: none;
+      border: none;
+      color: var(--text-color);
+      font-weight: 700;
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      user-select: none;
+      transition: color 0.3s ease;
+      position: relative;
+      padding: 0;
+      margin-bottom: 8px;
+    }
+    .toggle-btn:hover,
+    .toggle-btn:focus {
+      color: var(--accent-2);
+      outline: none;
+    }
+    .toggle-btn::after {
+      content: "▼";
+      font-size: 14px;
+      margin-left: 6px;
+      transition: transform 0.3s ease;
+    }
+    .toggle-btn[aria-expanded="true"]::after {
+      transform: rotate(180deg);
+    }
+
+    .checkbox-group {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.4s ease, margin-bottom 0.4s ease;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .checkbox-group.show {
+      max-height: 200px;
+      margin-bottom: 20px;
+    }
+
+    /* Option pills */
+    .option-pill {
+      cursor: pointer;
+      user-select: none;
+      display: flex;
+      align-items: center;
+      padding: 8px 18px;
+      border-radius: 9999px;
+      font-weight: 600;
+      font-size: 14px;
+      color: white;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      position: relative;
+    }
+
+    /* Hide default checkbox */
+    .option-pill input[type="checkbox"] {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      top: 0;
+      left: 0;
+      z-index: 2;
+    }
+
+    /* Colorful pills backgrounds */
+    .web-dev {
+      background: linear-gradient(45deg, #4facfe, #00f2fe);
+    }
+    .digital-marketing {
+      background: linear-gradient(45deg, #43e97b, #38f9d7);
+    }
+    .graphics {
+      background: linear-gradient(45deg, #fa709a, #fee140);
+      color: #222; /* better contrast */
+    }
+
+    /* Hover effects */
+    .option-pill:hover {
+      filter: brightness(1.1);
+      transform: scale(1.05);
+      transition: transform 0.2s ease, filter 0.2s ease;
+    }
+
+    /* Add check mark */
+    .option-pill.checked::after {
+      content: "✓";
+      position: absolute;
+      right: 12px;
+      font-weight: 700;
+      font-size: 16px;
+      color: white;
+      pointer-events: none;
+    }
+    
+    /* Submit button */
+    button[type="submit"] {
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-weight: 700;
+      background: var(--btn-primary-bg);
+      border: none;
+      color: var(--btn-primary-color);
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+      max-width: 150px;
+      align-self: center;
+    }
+
+    button[type="submit"]:hover,
+    button[type="submit"]:focus {
+      opacity: 0.9;
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Contact Me</h1>
+
+    <form id="contactForm" action="https://formsubmit.co/mdnahiduzzamandipu@gmail.com" method="POST">
+      <!-- Honey pot field to prevent spam -->
+      <input type="text" name="_honey" style="display:none" />
+
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Your full name" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required />
+
+      <label for="phone">Phone</label>
+      <input type="tel" id="phone" name="phone" placeholder="+880123456789" required />
+
+      <label for="location">Location</label>
+      <input type="text" id="location" name="location" placeholder="City, Country" required />
+    
+      <!-- Interest Section -->
+      <div class="checkbox-wrapper">
+        <button type="button" id="interest-toggle" aria-expanded="false" aria-controls="interest-options" class="toggle-btn">
+          Select your interest:
+        </button>
+        <div id="interest-options" class="checkbox-group" hidden>
+          <label class="option-pill web-dev">
+            <input type="checkbox" name="services" value="Web Development" />
+            Web Development
+          </label>
+          <label class="option-pill digital-marketing">
+            <input type="checkbox" name="services" value="Digital Marketing" />
+            Digital Marketing
+          </label>
+          <label class="option-pill graphics">
+            <input type="checkbox" name="services" value="Graphics" />
+            Graphics
+          </label>
+        </div>
+      </div>
+    
+      <label for="message">Message</label>
+      <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+<script>
+  // Interest toggle button
+  const interestToggle = document.getElementById('interest-toggle');
+  const interestOptions = document.getElementById('interest-options');
+
+  interestToggle.addEventListener('click', () => {
+    const expanded = interestToggle.getAttribute('aria-expanded') === 'true';
+    interestToggle.setAttribute('aria-expanded', String(!expanded));
+    if (!expanded) {
+      interestOptions.hidden = false;
+      interestOptions.classList.add('show');
+    } else {
+      interestOptions.classList.remove('show');
+      setTimeout(() => { interestOptions.hidden = true; }, 400);
+    }
+  });
+
+  // Checkbox pill style toggle for checked
+  document.querySelectorAll('.option-pill input[type="checkbox"]').forEach(chk => {
+    chk.addEventListener('change', e => {
+      const label = e.target.parentElement;
+      if(e.target.checked) {
+        label.classList.add('checked');
+      } else {
+        label.classList.remove('checked');
+      }
+    });
+  });
+</script>
+</body>
+</html>
