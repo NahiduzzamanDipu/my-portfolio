@@ -44,6 +44,21 @@ reasonSelect.addEventListener('change', () => {
   }
 });
 
+// Interest toggle button
+  const interestToggle = document.getElementById('interest-toggle');
+  const interestOptions = document.getElementById('interest-options');
+
+  interestToggle.addEventListener('click', () => {
+    const expanded = interestToggle.getAttribute('aria-expanded') === 'true';
+    interestToggle.setAttribute('aria-expanded', String(!expanded));
+    if (!expanded) {
+      interestOptions.hidden = false;
+      interestOptions.classList.add('show');
+    } else {
+      interestOptions.classList.remove('show');
+      setTimeout(() => { interestOptions.hidden = true; }, 400);
+    }
+  });
 
         // Starfield Generation
         function generateStars() {
@@ -79,3 +94,4 @@ reasonSelect.addEventListener('change', () => {
         window.addEventListener('resize', () => {
             if (document.body.classList.contains('dark-mode')) generateStars();
         });
+
