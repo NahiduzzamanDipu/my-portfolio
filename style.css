@@ -470,6 +470,7 @@
 		.contact-form textarea,
 		.contact-form select {
 		  padding: 1rem;
+		  color: white;
 		  border-radius: 8px;
 		  border: 1px solid rgba(178, 216, 216, 0.2);
 		  background-color: var(--dark-glass-color);
@@ -513,7 +514,10 @@
 		  background-color: #4caf50; /* Graphics Design */
 		}
 		#reason option[value="Support"] {
-		  background-color: #2196f3; /* Web Development */
+		  background-color: #800080; /* Web Development */
+		}
+		#reason option[value="Suppor1t"] {
+		  background-color: #ff4d00; /* Machine Learning */
 		}
 
 		/* Animated display */
