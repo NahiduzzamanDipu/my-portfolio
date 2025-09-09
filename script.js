@@ -1,97 +1,49 @@
-// Dark/Light Mode Toggle
-        const toggleButton = document.getElementById('mode-toggle');
-        toggleButton.addEventListener('click', () => {
-            document.body.classList.toggle('light-mode');
-            document.body.classList.toggle('dark-mode');
-        });
+// Dark/Light Mode
+    const toggleButton = document.getElementById('mode-toggle');
+    toggleButton.addEventListener('click', () => {
+      document.body.classList.toggle('light-mode');
+      document.body.classList.toggle('dark-mode');
+      if (document.body.classList.contains('dark-mode')) generateStars();
+    });
 
-        // Intro Video Modal
-        const openVideoBtn = document.getElementById('open-video-modal');
-        const closeVideoBtn = document.getElementById('close-video-modal');
-        const modal = document.getElementById('video-modal');
+    // Starfield
+    function generateStars() {
+      const starCount = 600;
+      const starfield = document.getElementById('starfield');
+      starfield.innerHTML = '';
 
-        openVideoBtn.addEventListener('click', () => {
-            modal.style.display = 'flex';
-        });
-        closeVideoBtn.addEventListener('click', () => {
-            modal.style.display = 'none';
-        });
-        window.addEventListener('click', (e) => {
-            if (e.target === modal) modal.style.display = 'none';
-        });
-		
-		function toggleMode() {
-    const body = document.body;
-    body.classList.toggle('dark-mode');
-    body.classList.toggle('light-mode');
-}
+      for (let i = 0; i < starCount; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
 
-const reasonSelect = document.getElementById('reason');
-const displayDiv = document.getElementById('selected-reason');
+        // Size
+        const sizeCategory = Math.random();
+        let size;
+        if (sizeCategory < 0.6) size = Math.random() * 2 + 1;
+        else if (sizeCategory < 0.9) size = Math.random() * 3 + 2;
+        else size = Math.random() * 4 + 4;
+        star.style.width = `${size}px`;
+        star.style.height = `${size}px`;
 
-reasonSelect.addEventListener('change', () => {
-  const selectedOption = reasonSelect.options[reasonSelect.selectedIndex];
-  const value = selectedOption.value;
-  const color = selectedOption.getAttribute('data-color') || "#3b3b3b";
+        // Position
+        star.style.left = `${Math.random() * window.innerWidth}px`;
+        star.style.top = `${Math.random() * window.innerHeight}px`;
 
-  if (value) {
-    displayDiv.textContent = `You selected: ${selectedOption.text}`;
-    displayDiv.style.backgroundColor = color;
-    displayDiv.classList.add('show');
-  } else {
-    displayDiv.classList.remove('show');
-    displayDiv.textContent = "";
-  }
-});
+        // Movement
+        const dx = (Math.random() - 0.5) * 300;
+        const dy = (Math.random() - 0.5) * 300;
+        star.style.setProperty('--dx', `${dx}px`);
+        star.style.setProperty('--dy', `${dy}px`);
 
-// Interest toggle button
-  const interestToggle = document.getElementById('interest-toggle');
-  const interestOptions = document.getElementById('interest-options');
+        // Speed
+        star.style.animationDuration = `${Math.random() * 20 + 5}s, ${Math.random() * 5 + 2}s`;
 
-  interestToggle.addEventListener('click', () => {
-    const expanded = interestToggle.getAttribute('aria-expanded') === 'true';
-    interestToggle.setAttribute('aria-expanded', String(!expanded));
-    if (!expanded) {
-      interestOptions.hidden = false;
-      interestOptions.classList.add('show');
-    } else {
-      interestOptions.classList.remove('show');
-      setTimeout(() => { interestOptions.hidden = true; }, 400);
+        // Opacity
+        star.style.opacity = Math.random() * 0.8 + 0.2;
+
+        starfield.appendChild(star);
+      }
     }
-  });
 
-        // Starfield Generation
-        function generateStars() {
-            const starCount = 400;
-            const starfield = document.getElementById('starfield');
-            starfield.innerHTML = '';
-
-            for (let i = 0; i < starCount; i++) {
-                const star = document.createElement('div');
-                star.className = 'star';
-                const size = Math.random() * 2 + 2;
-                star.style.width = `${size}px`;
-                star.style.height = `${size}px`;
-
-                const x = Math.random() * window.innerWidth;
-                const y = Math.random() * window.innerHeight;
-                star.style.left = `${x}px`;
-                star.style.top = `${y}px`;
-
-                const dx = (Math.random() - 0.5) * 200;
-                const dy = (Math.random() - 0.5) * 200;
-                star.style.setProperty('--dx', `${dx}px`);
-                star.style.setProperty('--dy', `${dy}px`);
-
-                const duration = Math.random() * 15 + 10;
-                star.style.animationDuration = `${duration}s`;
-
-                starfield.appendChild(star);
-            }
-        }
-
-        if (document.body.classList.contains('dark-mode')) generateStars();
-        window.addEventListener('resize', () => {
-            if (document.body.classList.contains('dark-mode')) generateStars();
-        });
-
+    window.addEventListener("load", generateStars);
+    window.addEventListener("resize", generateStars);
