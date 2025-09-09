@@ -64,117 +64,161 @@ I thrive at the intersection of technology, creativity, and strategy, and I’m 
 
     <!-- Projects -->
 		<section id="projects">
-			<div class="container">
-				<h2 class="glitch-text" style="text-align: center;">Recent Projects</h2>
-				<div class="project-grid">
-					<div class="glass-card">
-						<img src="wp.png" alt="AI Chatbot" class="project-image shape1">
-						<h3>Will update</h3>
-						<p>Under updates</p>
-						<a href="https://link-to-ai-chatbot.com" target="_blank" class="project-link">View Project</a>
-					</div>
-					<div class="glass-card">
-						<img src="wp.png" alt="Data Visualization" class="project-image shape2">
-						<h3>Will update</h3>
-						<p>Under updates</p>
-						<a href="https://link-to-data-visualization.com" target="_blank" class="project-link">View Project</a>
-					</div>
-					<div class="glass-card">
-						<img src="wp.png" alt="Transparent Todo List" class="project-image shape3">
-						<h3>Will update</h3>
-						<p>Under updates</p>
-						<a href="https://link-to-transparent-todo.com" target="_blank" class="project-link">View Project</a>
-					</div>
-					<div class="glass-card">
-						<img src="wp.png" alt="AI-Powered Search" class="project-image shape4">
-						<h3>Will update</h3>
-						<p>Under updates</p>
-						<a href="https://link-to-ai-search.com" target="_blank" class="project-link">View Project</a>
-					</div>
+		  <div class="container">
+			<h2 class="glitch-text" data-text="Recent Projects">My Work</h2>
+
+			<!-- Category: Digital Marketing -->
+			<div class="project-category">
+			  <h3 class="category-title">🚀 Digital Marketing</h3>
+			  <div class="project-grid">
+				<div class="project-card">
+				  <img src="wp.png" alt="SEO Project">
+				  <h3>SEO Campaign</h3>
+				  <p>Boosted organic traffic by 200% with smart SEO strategy.</p>
+				  <a href="#" class="project-link">View Project</a>
 				</div>
+				<div class="project-card">
+				  <img src="wp.png" alt="Ad Campaign">
+				  <h3>Ad Campaign</h3>
+				  <p>Google Ads & Facebook Ads campaign with high ROI.</p>
+				  <a href="#" class="project-link">View Project</a>
+				</div>
+			  </div>
 			</div>
+
+			<!-- Category: Graphics Design -->
+			<div class="project-category">
+			  <h3 class="category-title">🎨 Graphics Design</h3>
+			  <div class="project-grid">
+				<div class="project-card">
+				  <img src="wp.png" alt="Logo Design">
+				  <h3>Logo Design</h3>
+				  <p>Creative, modern logo design for startups and businesses.</p>
+				  <a href="#" class="project-link">View Project</a>
+				</div>
+				<div class="project-card">
+				  <img src="wp.png" alt="Poster Design">
+				  <h3>Poster Design</h3>
+				  <p>Minimal yet impactful poster and banner designs.</p>
+				  <a href="#" class="project-link">View Project</a>
+				</div>
+			  </div>
+			</div>
+
+			<!-- Category: Web Development -->
+			<div class="project-category">
+			  <h3 class="category-title">💻 Web Development</h3>
+			  <div class="project-grid">
+				<div class="project-card">
+				  <img src="wp.png" alt="Portfolio Website">
+				  <h3>Portfolio Website</h3>
+				  <p>Responsive personal portfolio with glassmorphism UI.</p>
+				  <a href="#" class="project-link">View Project</a>
+				</div>
+				<div class="project-card">
+				  <img src="wp.png" alt="E-Commerce">
+				  <h3>E-Commerce Site</h3>
+				  <p>Full-stack online store with secure payments & cart system.</p>
+				  <a href="#" class="project-link">View Project</a>
+				</div>
+			  </div>
+			</div>
+			
+			<!-- Category: Machine Learning -->
+			<div class="project-category">
+			  <h3 class="category-title">🤖 Machine Learning</h3>
+			  <div class="project-grid">
+				<div class="project-card">
+				  <img src="wp.png" alt="ML Model">
+				  <h3>Predictive Analytics</h3>
+				  <p>Built regression & classification models for real-world datasets.</p>
+				  <a href="#" class="project-link">View Project</a>
+				</div>
+				<div class="project-card">
+				  <img src="wp.png" alt="AI Chatbot">
+				  <h3>AI Chatbot</h3>
+				  <p>Smart NLP-powered chatbot for customer support.</p>
+				  <a href="#" class="project-link">View Project</a>
+				</div>
+			  </div>
+			</div>
+		  </div>
 		</section>
 
 
 
-<!-- Contact -->
-<section id="contact">
-  <div class="glass-card">
-    <h2 class="glitch-text" style="text-align: center;">Contact Me</h2>
-    <form action="https://formsubmit.co/mdnahiduzzamandipu@gmail.com" method="POST" class="contact-form">
-      <input type="text" name="name" placeholder="Name" required>
-      <input type="email" name="email" placeholder="Email" required>
-      <input type="text" id="phone" name="phone" placeholder="Phone" required>
-      <input type="text" name="city" placeholder="City" required>
+		<!-- Contact -->
+		<section id="contact">
+		  <div class="glass-card">
+			<h2 class="glitch-text" style="text-align: center;">Contact Me</h2>
+			<form action="https://formsubmit.co/mdnahiduzzamandipu@gmail.com" method="POST" class="contact-form">
+			  <input type="text" name="name" placeholder="Name" required>
+			  <input type="email" name="email" placeholder="Email" required>
+			  <input type="tel" id="phone" name="phone" placeholder="Phone" pattern="[0-9]{10}" title="Please enter a 10-digit phone number" required>
+			  <input type="text" name="city" placeholder="City" required>
 
-      <!-- Dropdown -->
-      <label for="reason">Reason for Contact:</label>
-      <select id="reason" name="reason" required>
-        <option value="">--Select One--</option>
-        <option value="General Inquiry" data-color="#ff9800">Digital Marketing</option>
-        <option value="Project Proposal" data-color="#4caf50">Graphics Design</option>
-        <option value="Support" data-color="#2196f3">Web Development</option>
-      </select>
+			  <!-- Dropdown -->
+			  <label for="reason">Reason for Contact:</label>
+			  <select id="reason" name="reason" required>
+				<option value="">--Select One--</option>
+				<option value="General Inquiry" data-color="#ff9800">Digital Marketing</option>
+				<option value="Project Proposal" data-color="#4caf50">Graphics Design</option>
+				<option value="Support" data-color="#2196f3">Web Development</option>
+			  </select>
 
-      <!-- Animated Display -->
-      <div id="selected-reason" class="animated-display"></div>
+			  <!-- Animated Display -->
+			  <div id="selected-reason" class="animated-display"></div>
 
-      <!-- File attachment -->
-      <input type="file" name="attachment" accept=".pdf,.doc,.docx,.jpg,.png">
+			  <!-- File attachment -->
+			  <input type="file" name="attachment" accept=".pdf,.doc,.docx,.jpg,.png">
 
-      <textarea name="message" id="message-textarea" rows="6" placeholder="Your Message" ></textarea>
-      <button type="submit" class="neon-button">Send Message</button>
-    </form>
-  </div>
-</section>
+			  <textarea name="message" id="message-textarea" rows="6" placeholder="Your Message" ></textarea>
+			  <button type="submit" class="neon-button">Send Message</button>
+			</form>
+		  </div>
+		</section>
 
-	
-<!-- Footer -->
-<footer class="footer">
-    <!-- First line: Centered GitHub -->
-    <div class="footer-github">
-        <a href="https://github.com/NahiduzzamanDipu" target="_blank" class="social-wrapper github">
-            <img src="git.jpg" alt="GitHub" class="social-link">
-        </a>
-    </div>
+			
+		<!-- Footer -->
+		<footer class="footer">
+			<!-- First line: Centered GitHub -->
+			<div class="footer-github">
+				<a href="https://github.com/NahiduzzamanDipu" target="_blank" class="social-wrapper github">
+					<img src="git.jpg" alt="GitHub" class="social-link">
+				</a>
+			</div>
 
-    <!-- Second line: Left and Right social icons + Center text -->
-    <div class="footer-bottom">
-        <div class="left-socials">
-            <a href="https://www.facebook.com/md.nahiduzzaman.dipu" class="social-wrapper square"><img src="f.png" alt="Facebook" class="social-link"></a>
-            <a href="https://www.instagram.com/dipu_nahid_22/?hl=en" class="social-wrapper square"><img src="i.png" alt="Instagram" class="social-link"></a>
-            <a href="https://x.com/DipuNahid_22" class="social-wrapper square"><img src="t.png" alt="Twitter" class="social-link"></a>
-        </div>
+			<!-- Second line: Left and Right social icons + Center text -->
+			<div class="footer-bottom">
+				<div class="left-socials">
+					<a href="https://www.facebook.com/md.nahiduzzaman.dipu" class="social-wrapper square"><img src="f.png" alt="Facebook" class="social-link"></a>
+					<a href="https://www.instagram.com/dipu_nahid_22/?hl=en" class="social-wrapper square"><img src="i.png" alt="Instagram" class="social-link"></a>
+					<a href="https://x.com/DipuNahid_22" class="social-wrapper square"><img src="t.png" alt="Twitter" class="social-link"></a>
+				</div>
 
-        <p class="footer-text">© 2025 MD Nahiduzzaman Dipu | All Rights Reserved</p>
+				<p class="footer-text">© 2025 MD Nahiduzzaman Dipu | All Rights Reserved</p>
 
-        <div class="right-socials">
-            <a href="mailto:mdnahiduzzamandipu@gmail.com" class="social-wrapper square"><img src="m.png" alt="Mail" class="social-link"></a>
-            <a href="https://www.upwork.com/freelancers/~01a0bf5c9df66ba5c6" class="social-wrapper square"><img src="u.png" alt="Upwork" class="social-link"></a>
-            <a href="https://www.linkedin.com/in/mdnahiduzzamandipu/" class="social-wrapper square"><img src="l.png" alt="Linkedin" class="social-link"></a>
-        </div>
-    </div>
-</footer>
+				<div class="right-socials">
+					<a href="mailto:mdnahiduzzamandipu@gmail.com" class="social-wrapper square"><img src="m.png" alt="Mail" class="social-link"></a>
+					<a href="https://www.upwork.com/freelancers/~01a0bf5c9df66ba5c6" class="social-wrapper square"><img src="u.png" alt="Upwork" class="social-link"></a>
+					<a href="https://www.linkedin.com/in/mdnahiduzzamandipu/" class="social-wrapper square"><img src="l.png" alt="Linkedin" class="social-link"></a>
+				</div>
+			</div>
+		</footer>
 
 
-    <!-- Modal for Intro Video -->
-    <div id="video-modal" class="modal">
-        <span class="close-button" id="close-video-modal">&times;</span>
-        <div class="modal-content">
-            <video controls autoplay>
-                <source src="intro4.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-    </div>
+		<!-- Modal for Intro Video -->
+		<div id="video-modal" class="modal">
+			<span class="close-button" id="close-video-modal">&times;</span>
+			<div class="modal-content">
+				<video controls autoplay>
+					<source src="intro4.mp4" type="video/mp4">
+					Your browser does not support the video tag.
+				</video>
+			</div>
+		</div>
 
-	<script src="script.js"></script>
+		<script src="script.js"></script>
 
 </body>
 </html>
-
-
-
-
-
-
