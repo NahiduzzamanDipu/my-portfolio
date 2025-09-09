@@ -5,6 +5,21 @@
       document.body.classList.toggle('dark-mode');
       if (document.body.classList.contains('dark-mode')) generateStars();
     });
+	
+	 // Intro Video Modal
+        const openVideoBtn = document.getElementById('open-video-modal');
+        const closeVideoBtn = document.getElementById('close-video-modal');
+        const modal = document.getElementById('video-modal');
+
+        openVideoBtn.addEventListener('click', () => {
+            modal.style.display = 'flex';
+        });
+        closeVideoBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) modal.style.display = 'none';
+        });
 
     // Starfield
     function generateStars() {
@@ -47,3 +62,4 @@
 
     window.addEventListener("load", generateStars);
     window.addEventListener("resize", generateStars);
+	
