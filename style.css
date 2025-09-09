@@ -507,16 +507,16 @@
 		#reason option[value=""] {
 		  background-color: #3b3b3b; /* --Select One-- */
 		}
-		#reason option[value="General Inquiry"] {
+		#reason option[value="Digital Marketing"] {
 		  background-color: #ff9800; /* Digital Marketing */
 		}
-		#reason option[value="Project Proposal"] {
+		#reason option[value="Graphics Design"] {
 		  background-color: #4caf50; /* Graphics Design */
 		}
-		#reason option[value="Support"] {
+		#reason option[value="Web Development"] {
 		  background-color: #800080; /* Web Development */
 		}
-		#reason option[value="Suppor1t"] {
+		#reason option[value="Machine Learning"] {
 		  background-color: #ff4d00; /* Machine Learning */
 		}
 
@@ -731,3 +731,4 @@
 			text-align: center;
 			flex: 1;
 		}
+
