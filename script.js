@@ -63,3 +63,31 @@
     window.addEventListener("load", generateStars);
     window.addEventListener("resize", generateStars);
 	
+	// Interest toggle button
+	  const interestToggle = document.getElementById('interest-toggle');
+	  const interestOptions = document.getElementById('interest-options');
+
+	  interestToggle.addEventListener('click', () => {
+		const expanded = interestToggle.getAttribute('aria-expanded') === 'true';
+		interestToggle.setAttribute('aria-expanded', String(!expanded));
+		if (!expanded) {
+		  interestOptions.hidden = false;
+		  interestOptions.classList.add('show');
+		} else {
+		  interestOptions.classList.remove('show');
+		  setTimeout(() => { interestOptions.hidden = true; }, 400);
+		}
+	  });
+
+	  // Checkbox pill style toggle for checked
+	  document.querySelectorAll('.option-pill input[type="checkbox"]').forEach(chk => {
+		chk.addEventListener('change', e => {
+		  const label = e.target.parentElement;
+		  if(e.target.checked) {
+			label.classList.add('checked');
+		  } else {
+			label.classList.remove('checked');
+		  }
+		});
+	  });
+	
