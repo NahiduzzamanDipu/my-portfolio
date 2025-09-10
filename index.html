@@ -7,7 +7,7 @@
 
     <!-- Favicon / Title Image -->
     <link rel="icon" href="Favicon.png" type="image/png">
-
+    <div class="menu-toggle"><i class="fas fa-bars"></i></div>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
@@ -231,15 +231,19 @@ I thrive at the intersection of technology, creativity, and strategy, and I’m 
 
 
 		<!-- Modal for Intro Video -->
-		<div id="video-modal" class="modal">
-			<span class="close-button" id="close-video-modal">&times;</span>
-			<div class="modal-content">
-				<video controls autoplay>
-					<source src="intro4.mp4" type="video/mp4">
-					Your browser does not support the video tag.
-				</video>
+			<div id="video-modal" class="modal">
+				<span class="close-button" id="close-video-modal">&times;</span>
+				<div class="modal-content">
+					<video controls autoplay>
+						<source src="intro4.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</div>
 			</div>
-		</div>
+
+			<!-- Button to open video modal -->
+			<button id="open-video-modal">Watch Intro Video</button>
+
 
 		<script src="script.js"></script>
 
