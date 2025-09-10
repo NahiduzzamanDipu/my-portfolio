@@ -230,20 +230,16 @@ I thrive at the intersection of technology, creativity, and strategy, and I’m 
 		</footer>
 
 
-		<!-- Modal for Intro Video -->
+		<!-- Video Modal -->
 			<div id="video-modal" class="modal">
-				<span class="close-button" id="close-video-modal">&times;</span>
-				<div class="modal-content">
-					<video controls autoplay>
-						<source src="intro4.mp4" type="video/mp4">
-						Your browser does not support the video tag.
-					</video>
-				</div>
+			  <div class="modal-content">
+				<!-- Close button -->
+				<span id="close-video-modal" class="close-button">&times;</span>
+
+				<!-- Video -->
+				<video id="intro-video" src="intro4.mp4" controls preload="metadata"></video>
+			  </div>
 			</div>
-
-			<!-- Button to open video modal -->
-			<button id="open-video-modal">Watch Intro Video</button>
-
 
 		<script src="script.js"></script>
 
