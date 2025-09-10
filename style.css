@@ -705,40 +705,58 @@ body.light-mode .mode-toggle:hover {
 		}
 
 
+/* Modal Base Styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000; /* above header */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(8px); /* blur background */
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
 
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 200;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
-            justify-content: center;
-            align-items: center;
-        }
+.modal.show {
+    display: flex;
+    opacity: 1;
+}
 
-        .modal-content {
-            position: relative;
-            max-width: 90%;
-            max-height: 90%;
-            background: transparent;
-        }
+/* Modal content */
+.modal-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    background: transparent;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(0,0,0,0.6);
+}
 
-        .close-button {
-            position: absolute;
-            top: 15px;
-            right: 25px;
-            color: #fff;
-            font-size: 3rem;
-            font-weight: bold;
-            cursor: pointer;
-            z-index: 201;
-        }
-        
+.modal-content video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 15px;
+}
+
+/* Close Button */
+.close-button {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #fff;
+    font-size: 2.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 2100; /* above video */
+}
+
         .footer {
             text-align: center;
             padding: 2rem;
