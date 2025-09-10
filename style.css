@@ -43,43 +43,45 @@
 			padding: 4rem 1rem;
 		  }
 		}
-		/* Default: hide hamburger on large screens */
-		.menu-toggle {
-		  display: none;
-		  cursor: pointer;
-		  font-size: 1.8rem;
-		  color: var(--neon-green);
-		  position: absolute;
-		  top: 20px;   /* inside header top */
-		  right: 20px; /* align right */
-		  z-index: 1001;
-		}
+		
+/* Default: hidden on big screens */
+.menu-toggle {
+  display: none;
+}
 
-		/* Show only on tablets & mobiles */
-		@media (max-width: 1024px) {
-		  .menu-toggle {
-			display: block;
-		  }
+/* Mobile/Tablet View */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    top: 18px;    /* align with header top */
+    right: 20px;  /* stick to right side */
+    font-size: 1.8rem;
+    color: var(--neon-green);
+    cursor: pointer;
+    z-index: 1100;
+  }
 
-		  /* Hide normal nav links on small screens */
-		  .nav-links {
-			display: none;
-			flex-direction: column;
-			background: rgba(0,0,0,0.95);
-			position: absolute;
-			top: 70px;
-			right: 20px;
-			border-radius: 12px;
-			padding: 1rem;
-			gap: 1rem;
-		  }
+  /* Hide normal nav links */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.95);
+    position: absolute;
+    top: 70px;     /* just below header */
+    right: 20px;
+    border-radius: 12px;
+    padding: 1rem;
+    gap: 1rem;
+    width: 220px;  /* fixed width for clean look */
+    text-align: left;
+  }
 
-		  .nav-links.active {
-			display: flex;
-		  }
-		}
-
-
+  /* Show menu when active */
+  .nav-links.active {
+    display: flex;
+  }
+}
 		
 		.moon {
 		  position: fixed;          /* stays in viewport */
