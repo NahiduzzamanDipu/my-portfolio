@@ -1,10 +1,22 @@
 // Dark/Light Mode
     const toggleButton = document.getElementById('mode-toggle');
-    toggleButton.addEventListener('click', () => {
-      document.body.classList.toggle('light-mode');
-      document.body.classList.toggle('dark-mode');
-      if (document.body.classList.contains('dark-mode')) generateStars();
-    });
+const toggleIcon = toggleButton.querySelector("i");
+
+toggleButton.addEventListener('click', () => {
+  document.body.classList.toggle('light-mode');
+  document.body.classList.toggle('dark-mode');
+
+  if (document.body.classList.contains('dark-mode')) {
+    toggleIcon.classList.remove("fa-sun");
+    toggleIcon.classList.add("fa-moon");
+    generateStars();
+  } else {
+    toggleIcon.classList.remove("fa-moon");
+    toggleIcon.classList.add("fa-sun");
+  }
+});
+
+
 	
 	 // Intro Video Modal
         const openVideoBtn = document.getElementById('open-video-modal');
@@ -91,3 +103,33 @@
 		});
 	  });
 	
+	
+	
+	
+	
+	
+	
+	
+const moon = document.querySelector('.moon');
+
+function moveMoonRandomly() {
+  if (!document.body.classList.contains('dark-mode')) return;
+
+  const maxX = window.innerWidth - moon.offsetWidth;
+  const maxY = window.innerHeight / 2; // upper half only
+
+  const randomX = Math.random() * maxX;
+  const randomY = Math.random() * maxY;
+
+  moon.style.left = randomX + 'px';
+  moon.style.top = randomY + 'px';
+
+  // Move again after 10 seconds
+  setTimeout(moveMoonRandomly, 10000); // slower movement
+}
+
+// Initialize
+moveMoonRandomly();
+
+
+
