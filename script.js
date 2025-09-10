@@ -55,8 +55,6 @@ if (openVideoBtn) {
     openVideoBtn.addEventListener('click', openVideoModal);
 }
 
-
-
 // ==============================
 // MOBILE NAVIGATION
 // ==============================
