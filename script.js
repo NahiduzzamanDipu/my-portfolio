@@ -1,51 +1,59 @@
 // Dark/Light Mode
     const toggleButton = document.getElementById('mode-toggle');
-const toggleIcon = toggleButton.querySelector("i");
+	const toggleIcon = toggleButton.querySelector("i");
 
-toggleButton.addEventListener('click', () => {
-  document.body.classList.toggle('light-mode');
-  document.body.classList.toggle('dark-mode');
+	toggleButton.addEventListener('click', () => {
+	  document.body.classList.toggle('light-mode');
+	  document.body.classList.toggle('dark-mode');
 
-  if (document.body.classList.contains('dark-mode')) {
-    toggleIcon.classList.remove("fa-sun");
-    toggleIcon.classList.add("fa-moon");
-    generateStars();
-  } else {
-    toggleIcon.classList.remove("fa-moon");
-    toggleIcon.classList.add("fa-sun");
-  }
-});
+	  if (document.body.classList.contains('dark-mode')) {
+		toggleIcon.classList.remove("fa-sun");
+		toggleIcon.classList.add("fa-moon");
+		generateStars();
+	  } else {
+		toggleIcon.classList.remove("fa-moon");
+		toggleIcon.classList.add("fa-sun");
+	  }
+	});
 
 
 	
 	 // Video Modal Script
-const openVideoBtn = document.getElementById('open-video-modal');
-const closeVideoBtn = document.getElementById('close-video-modal');
-const videoModal = document.getElementById('video-modal');
-const videoElement = videoModal.querySelector('video');
+		const openVideoBtn = document.getElementById('open-video-modal');
+		const closeVideoBtn = document.getElementById('close-video-modal');
+		const videoModal = document.getElementById('video-modal');
+		const videoElement = videoModal.querySelector('video');
 
-// Open Modal
-openVideoBtn.addEventListener('click', () => {
-    videoModal.classList.add('show');
-    videoElement.play();
-});
+		// Open Modal
+		openVideoBtn.addEventListener('click', () => {
+			videoModal.classList.add('show');
+			videoElement.play();
+		});
 
-// Close Modal
-function closeVideoModal() {
-    videoModal.classList.remove('show');
-    videoElement.pause();
-    videoElement.currentTime = 0; // reset video
-}
+		// Close Modal
+		function closeVideoModal() {
+			videoModal.classList.remove('show');
+			videoElement.pause();
+			videoElement.currentTime = 0; // reset video
+		}
 
-// Close when clicking close button
-closeVideoBtn.addEventListener('click', closeVideoModal);
+		// Close when clicking close button
+		closeVideoBtn.addEventListener('click', closeVideoModal);
 
-// Close when clicking outside video content
-videoModal.addEventListener('click', (e) => {
-    if (e.target === videoModal) {
-        closeVideoModal();
-    }
-});
+		// Close when clicking outside video content
+		videoModal.addEventListener('click', (e) => {
+			if (e.target === videoModal) {
+				closeVideoModal();
+			}
+		});
+	
+	const menuToggle = document.querySelector(".menu-toggle");
+	const navLinks = document.querySelector(".nav-links");
+
+	menuToggle.addEventListener("click", () => {
+	  navLinks.classList.toggle("active");
+	});
+
 
 
     // Starfield
@@ -119,32 +127,26 @@ videoModal.addEventListener('click', (e) => {
 	  });
 	
 	
-	
-	
-	
-	
-	
-	
-const moon = document.querySelector('.moon');
+		const moon = document.querySelector('.moon');
 
-function moveMoonRandomly() {
-  if (!document.body.classList.contains('dark-mode')) return;
+		function moveMoonRandomly() {
+		  if (!document.body.classList.contains('dark-mode')) return;
 
-  const maxX = window.innerWidth - moon.offsetWidth;
-  const maxY = window.innerHeight / 2; // upper half only
+		  const maxX = window.innerWidth - moon.offsetWidth;
+		  const maxY = window.innerHeight / 2; // upper half only
 
-  const randomX = Math.random() * maxX;
-  const randomY = Math.random() * maxY;
+		  const randomX = Math.random() * maxX;
+		  const randomY = Math.random() * maxY;
 
-  moon.style.left = randomX + 'px';
-  moon.style.top = randomY + 'px';
+		  moon.style.left = randomX + 'px';
+		  moon.style.top = randomY + 'px';
 
-  // Move again after 10 seconds
-  setTimeout(moveMoonRandomly, 10000); // slower movement
-}
+		  // Move again after 10 seconds
+		  setTimeout(moveMoonRandomly, 10000); // slower movement
+		}
 
-// Initialize
-moveMoonRandomly();
+		// Initialize
+		moveMoonRandomly();
 
 
 
