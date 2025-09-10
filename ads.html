@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nahiduzzaman</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="Favicon.png" type="image/png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      overflow-x: hidden;
+      background: #001F3F; /* Dark Navy Blue */
+      color: #fff;
+    }
+
+    /* Background canvas for stars */
+    #stars {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    /* Header */
+    header {
+      width: 100%;
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+      /* Fixed at top */
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+
+    /* Left Logo - Colorful Gradient */
+    .logo {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 1.8rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      background: linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #00ffff, #0000ff, #8b00ff);
+      background-size: 400% 400%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientShift 8s ease infinite;
+      text-decoration: none;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Center Text */
+    .header-center {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Inter', sans-serif;
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #fff;
+      letter-spacing: 2px;
+      pointer-events: none;
+    }
+
+    /* Gallery */
+    .gallery {
+      padding-top: 100px; /* Add space for fixed header */
+      padding-left: 40px;
+      padding-right: 40px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .card {
+      position: relative;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(15px);
+      border-radius: 15px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .card img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .card:hover img {
+      transform: scale(1.05);
+    }
+
+    /* View Button */
+    .view-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 12px 25px;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      font-size: 1rem;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.3s, transform 0.3s;
+    }
+
+    .card:hover .view-btn {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1.05);
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      color: #fff;
+    }
+
+    .footer-github {
+      margin-bottom: 20px;
+    }
+
+    .social-wrapper.github {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .social-wrapper.github:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+    }
+
+    .social-wrapper.github::before {
+      content: '';
+      position: absolute;
+      width: 120%;
+      height: 120%;
+      border-radius: 50%;
+      background: radial-gradient(circle, red, orange, yellow, green, cyan, blue, violet);
+      filter: blur(15px);
+      z-index: 0;
+      animation: spin 6s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .left-socials, .right-socials {
+      display: flex;
+      gap: 15px;
+    }
+
+    .social-wrapper.square {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .social-wrapper.square:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+    }
+
+    .social-link {
+      width: 30px;
+      height: 30px;
+      object-fit: contain;
+      border-radius: inherit;
+      transition: transform 0.3s, filter 0.3s, box-shadow 0.3s;
+      filter: grayscale(100%) brightness(150%);
+    }
+
+    .social-link:hover {
+      transform: scale(1.2) rotate(5deg);
+      filter: none;
+      box-shadow: 0 0 10px #fff;
+    }
+
+    .footer-text {
+      margin: 0;
+      text-align: center;
+      flex: 1;
+      color: #fff;
+    }
+
+    /* Modal */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 50;
+    }
+
+    .modal img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 15px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.6);
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      font-size: 2rem;
+      color: #fff;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="stars"></canvas>
+	
+  <!-- Header -->
+  <header class="header">
+    <a href="index.html" class="logo">Nahiduzzaman</a>
+    <div class="header-center">Ads Campaign</div>
+  </header>
+
+  <!-- Gallery -->
+  <div class="gallery">
+    <div class="card">
+      <img src="wp.png" alt="Work 1">
+      <button class="view-btn" onclick="openModal(this)">View</button>
+    </div>
+    <div class="card">
+      <img src="wp.png" alt="Work 2">
+      <button class="view-btn" onclick="openModal(this)">View</button>
+    </div>
+    <div class="card">
+      <img src="wp.png" alt="Work 3">
+      <button class="view-btn" onclick="openModal(this)">View</button>
+    </div>
+    <div class="card">
+      <img src="wp.png" alt="Work 4">
+      <button class="view-btn" onclick="openModal(this)">View</button>
+    </div>
+	<div class="card">
+      <img src="wp.png" alt="Work 1">
+      <button class="view-btn" onclick="openModal(this)">View</button>
+    </div>
+    <div class="card">
+      <img src="wp.png" alt="Work 2">
+      <button class="view-btn" onclick="openModal(this)">View</button>
+    </div>
+    <div class="card">
+      <img src="wp.png" alt="Work 3">
+      <button class="view-btn" onclick="openModal(this)">View</button>
+    </div>
+    <div class="card">
+      <img src="wp.png" alt="Work 4">
+      <button class="view-btn" onclick="openModal(this)">View</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-github">
+      <a href="https://github.com/NahiduzzamanDipu" target="_blank" class="social-wrapper github">
+        <img src="git.jpg" alt="GitHub" class="social-link">
+      </a>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="left-socials">
+        <a href="https://www.facebook.com/md.nahiduzzaman.dipu" class="social-wrapper square"><img src="f.png" alt="Facebook" class="social-link"></a>
+        <a href="https://www.instagram.com/dipu_nahid_22/?hl=en" class="social-wrapper square"><img src="i.png" alt="Instagram" class="social-link"></a>
+        <a href="https://x.com/DipuNahid_22" class="social-wrapper square"><img src="t.png" alt="Twitter" class="social-link"></a>
+      </div>
+
+      <p class="footer-text">© 2025 <a href="https://github.com/NahiduzzamanDipu" style="color:#fff;">MD Nahiduzzaman Dipu</a> | All Rights Reserved</p>
+
+      <div class="right-socials">
+        <a href="mailto:mdnahiduzzamandipu@gmail.com" class="social-wrapper square"><img src="m.png" alt="Mail" class="social-link"></a>
+        <a href="https://www.upwork.com/freelancers/~01a0bf5c9df66ba5c6" class="social-wrapper square"><img src="u.png" alt="Upwork" class="social-link"></a>
+        <a href="https://www.linkedin.com/in/mdnahiduzzamandipu/" class="social-wrapper square"><img src="l.png" alt="LinkedIn" class="social-link"></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal -->
+  <div class="modal" id="modal">
+    <button class="close-btn" onclick="closeModal()">✖</button>
+    <img id="modal-img" src="" alt="Preview">
+  </div>
+
+  <script>
+    // Modal Functions
+    const modal = document.getElementById("modal");
+    const modalImg = document.getElementById("modal-img");
+
+    function openModal(btn) {
+      const imgSrc = btn.previousElementSibling.src;
+      modalImg.src = imgSrc;
+      modal.style.display = "flex";
+    }
+
+    function closeModal() {
+      modal.style.display = "none";
+    }
+
+    // Stars animation (random floating)
+    const canvas = document.getElementById("stars");
+    const ctx = canvas.getContext("2d");
+    let stars = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
+
+    function createStars(count) {
+      stars = [];
+      for (let i = 0; i < count; i++) {
+        stars.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          radius: Math.random() * 2 + 1,
+          dx: (Math.random() - 0.5) * 1.2,
+          dy: (Math.random() - 0.5) * 1.2
+        });
+      }
+    }
+    createStars(150);
+
+    function drawStars() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "white";
+      stars.forEach(star => {
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+        ctx.fill();
+      });
+    }
+
+    function updateStars() {
+      stars.forEach(star => {
+        star.x += star.dx;
+        star.y += star.dy;
+        if (star.x < 0 || star.x > canvas.width) star.dx *= -1;
+        if (star.y < 0 || star.y > canvas.height) star.dy *= -1;
+      });
+    }
+
+    function animate() {
+      drawStars();
+      updateStars();
+      requestAnimationFrame(animate);
+    }
+    animate();
+  </script>
+</body>
+</html>
