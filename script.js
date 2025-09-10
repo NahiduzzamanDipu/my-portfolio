@@ -18,20 +18,35 @@ toggleButton.addEventListener('click', () => {
 
 
 	
-	 // Intro Video Modal
-        const openVideoBtn = document.getElementById('open-video-modal');
-        const closeVideoBtn = document.getElementById('close-video-modal');
-        const modal = document.getElementById('video-modal');
+	 // Video Modal Script
+const openVideoBtn = document.getElementById('open-video-modal');
+const closeVideoBtn = document.getElementById('close-video-modal');
+const videoModal = document.getElementById('video-modal');
+const videoElement = videoModal.querySelector('video');
 
-        openVideoBtn.addEventListener('click', () => {
-            modal.style.display = 'flex';
-        });
-        closeVideoBtn.addEventListener('click', () => {
-            modal.style.display = 'none';
-        });
-        window.addEventListener('click', (e) => {
-            if (e.target === modal) modal.style.display = 'none';
-        });
+// Open Modal
+openVideoBtn.addEventListener('click', () => {
+    videoModal.classList.add('show');
+    videoElement.play();
+});
+
+// Close Modal
+function closeVideoModal() {
+    videoModal.classList.remove('show');
+    videoElement.pause();
+    videoElement.currentTime = 0; // reset video
+}
+
+// Close when clicking close button
+closeVideoBtn.addEventListener('click', closeVideoModal);
+
+// Close when clicking outside video content
+videoModal.addEventListener('click', (e) => {
+    if (e.target === videoModal) {
+        closeVideoModal();
+    }
+});
+
 
     // Starfield
     function generateStars() {
